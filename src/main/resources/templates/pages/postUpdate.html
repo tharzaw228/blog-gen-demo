@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="modal-title">Title</h5>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/post-update}" th:object="${post}" method="post">
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input class="form-control" type="text" th:field="*{title}" ></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Body</label>
+                                    <textarea class="form-control" type="text" th:field="*{body}" ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Date Posted</label>
+                                    <input class="form-control" type="date" th:field="*{datePosted}"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select  class="form-control" th:field="*{category}">
+                                        <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.title}"></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">User</label>
+                                    <select  class="form-control" th:field="*{user}">
+                                        <option th:each="us : ${users}" th:value="${us.id}" th:text="${us.name}"></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

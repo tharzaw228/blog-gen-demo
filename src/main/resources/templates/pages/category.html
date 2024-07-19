@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  th:replace="~{layout/masterLayout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <main role="main">
+      <div class="py-3 bg-success text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1><i class="fas fa-folder me-2"></i>Categories</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    <section class="bg-light py-5 mb-3">
+      <div class="container">
+        <div class="row">
+          <div class="offset-md-6 col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" name="" id="">
+              <a href="#" class="btn btn-success">Search</a>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h4>Category</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Date Posted</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="cat : ${categories}">
+                        <td th:text="${cat.id}"></td>
+                        <td th:text="${cat.title}"></td>
+                        <td th:text="${cat.datePosted}"></td>
+                        <td>
+                            <a th:href="@{'/update-category?id=' + ${cat.id}}"  class="btn btn-outline-success">Update </a>
+                            <a th:href="@{'/delete-category?id=' + ${cat.id}}" class="btn btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

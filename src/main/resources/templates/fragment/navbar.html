@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark text-light bg-dark">
+    <div class="container">
+        <a href="#" class="navbar-brand">Blog</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="myNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-user}" class="nav-link">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-category}" class="nav-link">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-post}" class="nav-link">Post</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
